@@ -1,4 +1,4 @@
-FROM python:2.7-alpine
+FROM python:2.7
 
 RUN  apk add --update --progress \
         musl \
@@ -9,12 +9,22 @@ RUN  apk add --update --progress \
 #ENV PYTHON_PIP_VERSION 8.1.0
 RUN pip install -q --no-cache-dir --upgrade pip
 
-RUN pip install twisted
+RUN pip install aniso8601
+RUN pip install Flask
+RUN pip install flask.restful
+RUN pip install werkzeug
+RUN pip install markupsafe
+RUN pip install itsdangerous
+RUN pip install jinja2
+RUN pip install six
+RUN pip install pytz
+RUN pip install flask_httpauth
+RUN pip install requests
 
-RUN mkdir /app/syncplay -p
-RUN git clone https://github.com/Syncplay/syncplay /app/syncplay
+RUN mkdir /app/redfish -p
+RUN git clone https://github.com/DMTF/Redfish-Interface-Emulator.git /app/redfish
 
-EXPOSE 8999
-COPY ./entrypoint.sh /entrypoint.sh
-WORKDIR /app/syncplay
-ENTRYPOINT ["/entrypoint.sh"]
+EXPOSE 5000
+#COPY ./entrypoint.sh /entrypoint.sh
+WORKDIR /app/redfish
+#ENTRYPOINT ["/entrypoint.sh"]
