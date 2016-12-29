@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:2.7-alpine
 
 RUN  apk add --update --progress \
         musl \
