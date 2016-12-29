@@ -20,6 +20,7 @@ RUN pip install six
 RUN pip install pytz
 RUN pip install flask_httpauth
 RUN pip install requests
+RUN pip install stringgenerator
 
 RUN mkdir /app/redfish -p
 RUN git clone https://github.com/DMTF/Redfish-Interface-Emulator.git /app/redfish
