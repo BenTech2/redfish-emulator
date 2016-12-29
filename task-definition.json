@@ -1,0 +1,17 @@
+{
+  "family": "redfish",
+  "containerDefinitions": [{
+    "image": "euank/syncplay-server",
+    "name": "app",
+    "memory": 50,
+    "portMappings": [{
+      "hostPort": 5000,
+      "containerPort": 5000
+    }],
+    "environment": [{
+      "name": "_ECS_R53_DNS", "value": "syncplay.mydomain.tld"
+    }, {
+      "name": "SALT", "value": ""
+    }]
+  }]
+}
