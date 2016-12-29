@@ -29,4 +29,4 @@ EXPOSE 5000
 #COPY ./entrypoint.sh /entrypoint.sh
 WORKDIR /app/redfish
 #ENTRYPOINT ["/entrypoint.sh"]
-COMMAND python emulator.py
+CMD ["python", "emulator.py"]
